@@ -31,10 +31,30 @@
         </div>
 
         <div id="content" class="col-sm-9 col-md-9">
+        </div>
 
+
+
+        <div id="pictures-carousel" style="display: none;">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div id="carousel-inner" class="carousel-inner" role="listbox">
+                <!-- Controls -->
+                <a class="left" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+
+
+
+            </div>
         </div>
     </div>
-
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -53,11 +73,23 @@
          }).then(function() {
             $('#nav-list li').first().addClass('active');
             $('#content section').first().addClass('active');
-            setUpListeners();
+            $.get('https://cdn.contentful.com/spaces/992r7xm0w3pn/entries?access_token=c1ad7b46c6fa65f5d1a51f0d06172d1c99f8094b060925dff31ad851caf72edf&content_type=picture')
+             .then(function createImageCarousel(pictures) {
+                for (picture in pictures.items) {
+                    addImageToSlider(pictures.items[picture]);
+                }
+                var carousel = document.getElementById('pictures-carousel');
+                carousel.style = '';
+                $(carousel).find('.item').first().addClass('active');
+
+                $('#Pictures').append(carousel);
+
+             }).then(function() {
+                setUpListeners();
+             });
          });
 
         function createNav(section) {
-            console.log(section);
             // <li class="history"><a href="#" class="nav-link" data-section="history">History</a></li>
             var linkName = document.createTextNode(section.fields.name);
             var link = document.createElement('a');
@@ -74,7 +106,6 @@
         }
 
         function createSection(section) {
-            console.log(section);
             //<section> <h2>title</h2> content </section>
             var newSection = document.createElement('section');
             newSection.id = section.fields.name.split(' ').join('');
@@ -88,6 +119,23 @@
             newSection.appendChild(body);
 
             document.getElementById('content').appendChild(newSection);
+        }
+
+        function addImageToSlider(picture) {
+            // <div class="item active">
+            //         <img src="https://1e33066f-a-62cb3a1a-s-sites.googlegroups.com/site/pinegrovecharltonorg/home/pictures/HPIM2111.JPG?attachauth=ANoY7crgvC4JUY9fOvvC3eE_8NWzuW7XBFeCaqOz3B0TWGuLbtKIKsy29qFwf3zFlThqi7qX6gNZH7BpIBKDzzKsrtSBusZvqYKN6ubNy9m4Dli9o-cxx4ScNhf59yKFSF2XAFWKN7hLp1fzv2HQO5OWm6oKuOOnqAsMGejUYQTPOljo34bLIb-mIOwbUIatzz3ujxjoDzU_f_uA0ibz6lPjSWe-yXGeHrH6eFPr7kiUfDg4kZKPLvP9GQfaj4DOQevNwR2FlPn7&attredirects=0" alt="...">
+            //         <div class="carousel-caption">
+            //             ...
+            //         </div>
+            //     </div>
+            var div = document.createElement('div');
+            div.className = "item";
+
+            var img = document.createElement('img');
+            img.src = picture.fields.image;
+
+            div.appendChild(img);
+            document.getElementById('carousel-inner').appendChild(div);
         }
 
         function setUpListeners() {
