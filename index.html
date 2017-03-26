@@ -165,10 +165,9 @@
             var div = document.createElement('div');
             div.className = "item";
 
-            var img = document.createElement('img');
-            img.src = picture.fields.image;
+            var img = markdown.toHTML(picture.fields.image);
 
-            div.appendChild(img);
+            $(div).append(img);
             document.getElementById('carousel-inner').appendChild(div);
         }
 
