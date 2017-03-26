@@ -109,6 +109,7 @@ div#carousel-inner a.carousel-control {
 .slick-slider .slick-list {
     left: 4%;
     right: 4%;
+    width: 92%;
 }
 
 .slick-slider .slick-prev {
