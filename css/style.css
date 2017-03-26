@@ -33,7 +33,15 @@ section.active{ display: block; }
 
 .navbar-toggle .icon-bar {
 	background-color: #444;
- }
+}
+
+nav .navbar-collapse {
+    position: absolute;
+    top: 200px;
+    background: white;
+    width: 100%;
+    z-index: 10;
+}
 
 nav div.container {
 	    background: #f2f2f2;
@@ -41,18 +49,33 @@ nav div.container {
     border-radius: 4px;
 }
 
+.nav-pills>li>a, .nav-pills>li>a:focus, .nav-pills>li>a:hover {
+    color: #444;
+}
+
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
-    color: #337ab7;
+    color: #444;
     background-color: #fff;
-    border-left: 3px solid #337ab7;
+    border-left: 3px solid #444;
     border-radius: 0px;
+}
+
+.navbar-nav>li>a {
+    color: #444;
+}
+
+ul.navbar-nav li.active {
+    font-weight: bold;
+    border-left: 3px solid #444;
+    background: #f2f2f2;
 }
 
 a.navbar-brand {
 	position: absolute;
 	bottom: 10px;
-	font-size: 36px;
+	font-size: 30px;
 	color: #fff;
+    width: 75%;
 }
 
 .nav>li>a:focus, .nav>li>a:hover {
@@ -76,4 +99,5 @@ div.side-nav.affix {
 @media (min-width: 768px) {
 	div.collapse.navbar-collapse { visibility: hidden; }
 	div.side-nav { display: block; }
+    a.navbar-brand { font-size: 36px; }
 }
