@@ -96,7 +96,10 @@ div.side-nav.affix {
 	top: 0px;
 }
 
-.carousel-control.left, .carousel-control.right { background-image : none; }
+.carousel-control.left, .carousel-control.right {
+    background-image : none;
+    opacity: 1.0;
+}
 
 @media (min-width: 768px) {
 	div.collapse.navbar-collapse { visibility: hidden; }
