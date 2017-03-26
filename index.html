@@ -11,6 +11,8 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="slick-1.6.0/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick-1.6.0/slick/slick-theme.css"/>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -48,19 +50,9 @@
 
 
         <div id="pictures-carousel" style="display: none;">
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-
             <!-- Wrapper for slides -->
             <div id="carousel-inner" class="carousel-inner" role="listbox">
-                <!-- Controls -->
-                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+
             </div>
         </div>
     </div>
@@ -69,8 +61,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <div id="background"></div>
 
+    <script src="slick-1.6.0/slick/slick.min.js"></script>
     <script src="js/markdown-js-0.5.0/lib/markdown.js"></script>
     <script type="text/javascript">
         $.get('https://cdn.contentful.com/spaces/992r7xm0w3pn/entries?access_token=c1ad7b46c6fa65f5d1a51f0d06172d1c99f8094b060925dff31ad851caf72edf&order=fields.order&content_type=section')
@@ -118,6 +110,7 @@
 
              }).then(function() {
                 setUpListeners();
+                $('#carousel-inner').slick();
 
              });
          });
@@ -188,15 +181,8 @@
 
                 $('#mobile-navbar').removeClass('in');
             });
-
-            $('#picture-carousel').on('slide.bs.carousel', function () {
-                $('a.carousel-control').hide();
-            });
-
-            $('#picture-carousel').on('slid.bs.carousel', function () {
-                $('a.carousel-control').show();
-            });
         }
 </script>
+
 </body>
 </html>

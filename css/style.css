@@ -102,6 +102,23 @@ div#carousel-inner a.carousel-control {
     height: 450px;
 }
 
+.slick-slider .slick-prev:before, .slick-slider .slick-next:before {
+    color: black;
+}
+
+.slick-slider .slick-list {
+    left: 25px;
+    right: 25px;
+}
+
+.slick-slider .slick-prev {
+    left: 0px;
+}
+
+.slick-slider .slick-next {
+    right: 0px;
+}
+
 @media (min-width: 768px) {
 	div.collapse.navbar-collapse { visibility: hidden; }
 	div.side-nav { display: block; }
