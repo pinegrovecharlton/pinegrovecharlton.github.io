@@ -80,10 +80,30 @@
             }
             $('#Directions').html($('#Directions').html() + '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2921.4751675279945!2d-73.96042694836825!3d42.92610857905082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89de699871901b71%3A0xc9331c103fd2ccd1!2s438+County+Rd+53%2C+Ballston+Lake%2C+NY+12019!5e0!3m2!1sen!2sus!4v1490412264789" width="100%" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>')
          }).then(function() {
-            $('#nav-list li').first().addClass('active');
-            $('#mobile-nav-list li').first().addClass('active');
 
-            $('#content section').first().addClass('active');
+            var sectionName = '';
+            if (window.location.hash.length && window.location.hash.split('#').length > 1) {
+                sectionName = window.location.hash.split('#')[1];
+            }
+
+            if (sectionName.length && $('#nav-list li.'+sectionName).length) {
+                $('#nav-list li.'+sectionName).addClass('active');
+            } else {
+                $('#nav-list li').first().addClass('active');
+            }
+
+            if (sectionName.length &&  $('#mobile-nav-list li.'+sectionName).length) {
+                $('#mobile-nav-list li.'+sectionName).addClass('active');
+            } else {
+                $('#mobile-nav-list li').first().addClass('active');
+            }
+
+            if (sectionName.length && $('#content section#'+sectionName).length) {
+                $('#content section#'+sectionName).addClass('active');
+            } else {
+                $('#content section').first().addClass('active');
+            }
+
             $.get('https://cdn.contentful.com/spaces/992r7xm0w3pn/entries?access_token=c1ad7b46c6fa65f5d1a51f0d06172d1c99f8094b060925dff31ad851caf72edf&content_type=picture')
              .then(function createImageCarousel(pictures) {
                 for (picture in pictures.items) {
@@ -105,7 +125,7 @@
             // <li class="history"><a href="#" class="nav-link" data-section="history">History</a></li>
             var linkName = document.createTextNode(section.fields.name);
             var link = document.createElement('a');
-            link.href = "#";
+            link.href = "#"+section.fields.name.split(' ').join('');
             link.className = 'nav-link';
             link.setAttribute('data-section', section.fields.name.split(' ').join(''));
             link.appendChild(linkName);
