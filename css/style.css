@@ -99,6 +99,7 @@ div.side-nav.affix {
 div#carousel-inner a.carousel-control {
     background-image : none;
     opacity: 1.0;
+    height: 450px;
 }
 
 @media (min-width: 768px) {
