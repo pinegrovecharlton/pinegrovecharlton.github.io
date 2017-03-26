@@ -119,6 +119,10 @@ div#carousel-inner a.carousel-control {
     right: 0px;
 }
 
+.slick-slider .slick-slide img {
+    width: 100%;
+}
+
 @media (min-width: 768px) {
 	div.collapse.navbar-collapse { visibility: hidden; }
 	div.side-nav { display: block; }
