@@ -107,9 +107,9 @@ div#carousel-inner a.carousel-control {
 }
 
 .slick-slider .slick-list {
-    left: 4%;
-    right: 4%;
-    width: 92%;
+    left: 7%;
+    right: 7%;
+    width: 86%;
 }
 
 .slick-slider .slick-prev {
@@ -128,4 +128,10 @@ div#carousel-inner a.carousel-control {
 	div.collapse.navbar-collapse { visibility: hidden; }
 	div.side-nav { display: block; }
     a.navbar-brand { font-size: 36px; }
+
+    .slick-slider .slick-list {
+        left: 4%;
+        right: 4%;
+        width: 92%;
+    }
 }
