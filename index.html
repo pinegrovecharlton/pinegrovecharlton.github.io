@@ -143,7 +143,7 @@
             //<section> <h2>title</h2> content </section>
             var newSection = document.createElement('section');
             newSection.id = section.fields.name.split(' ').join('');
-            var title = document.createElement('h2');
+            var title = document.createElement('h1');
             var titleText = document.createTextNode(section.fields.name);
             title.appendChild(titleText);
             newSection.appendChild(title);
