@@ -96,7 +96,7 @@ div.side-nav.affix {
 	top: 0px;
 }
 
-.carousel-control.left, .carousel-control.right {
+div#carousel-inner a.carousel-control {
     background-image : none;
     opacity: 1.0;
 }
