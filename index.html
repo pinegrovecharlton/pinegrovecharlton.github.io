@@ -110,7 +110,10 @@
 
              }).then(function() {
                 setUpListeners();
-                $('#carousel-inner').slick();
+                $('#carousel-inner').slick({
+                    fade: true,
+                    cssEase: 'linear'
+                });
 
              });
          });
