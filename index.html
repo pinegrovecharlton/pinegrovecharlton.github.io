@@ -107,7 +107,8 @@
                 }
                 $('#totalPictures').html(pictures.items.length);
                 var carousel = document.getElementById('pictures-carousel');
-                carousel.style = '';
+                carousel.style.display="block";
+
                 $(carousel).find('.item').first().addClass('active');
 
                 $('#Pictures').append(carousel);
