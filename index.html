@@ -159,16 +159,15 @@
             if (section == null) {
                 section = $('#content section').first();
             }
-            section.addClass('active', function() {
-                if (sectionName === 'Pictures') {
-                    $('#carousel-inner').slick('unslick')
-                                        .slick({
-                                                fade: true,
-                                                cssEase: 'linear'
-                                               });
+            section.addClass('active');
+            if (sectionName === 'Pictures') {
+                $('#carousel-inner').slick('unslick')
+                                    .slick({
+                                            fade: true,
+                                            cssEase: 'linear'
+                                           });
 
-                }
-            });
+            }
         }
 
         function addImageToSlider(picture) {
