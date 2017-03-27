@@ -157,12 +157,6 @@
         }
 
         function addImageToSlider(picture) {
-            // <div class="item active">
-            //         <img src="https://1e33066f-a-62cb3a1a-s-sites.googlegroups.com/site/pinegrovecharltonorg/home/pictures/HPIM2111.JPG?attachauth=ANoY7crgvC4JUY9fOvvC3eE_8NWzuW7XBFeCaqOz3B0TWGuLbtKIKsy29qFwf3zFlThqi7qX6gNZH7BpIBKDzzKsrtSBusZvqYKN6ubNy9m4Dli9o-cxx4ScNhf59yKFSF2XAFWKN7hLp1fzv2HQO5OWm6oKuOOnqAsMGejUYQTPOljo34bLIb-mIOwbUIatzz3ujxjoDzU_f_uA0ibz6lPjSWe-yXGeHrH6eFPr7kiUfDg4kZKPLvP9GQfaj4DOQevNwR2FlPn7&attredirects=0" alt="...">
-            //         <div class="carousel-caption">
-            //             ...
-            //         </div>
-            //     </div>
             var div = document.createElement('div');
             div.className = "item";
 
@@ -184,20 +178,22 @@
 
                 $('section.active').fadeOut(function() {
                     $('section.active').removeClass('active');
-                    $(targetSection).addClass('active').fadeIn();
-                });
+                    $(targetSection).addClass('active').fadeIn(function() {
 
-                $('#mobile-navbar').removeClass('in');
+                        if (target === 'Pictures') {
 
-                if (target === 'Pictures') {
-                    setTimeout(function() {
                         $('#carousel-inner').slick('unslick')
                                             .slick({
                                                     fade: true,
                                                     cssEase: 'linear'
                                                    });
-                    },250);
                 }
+                    });
+                });
+
+                $('#mobile-navbar').removeClass('in');
+
+
             });
 
             $('#carousel-inner').on('afterChange', function(slick, currentSlide) {
