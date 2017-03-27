@@ -190,7 +190,9 @@
                 $('#mobile-navbar').removeClass('in');
 
                 if (target === 'Pictures') {
-                    $('carousel-inner').slick('slickNext').slick('slickPrev')
+                    setTimeout(function() {
+                        $('carousel-inner').slick('slickNext').slick('slickPrev')
+                    },500);
                 }
             });
 
