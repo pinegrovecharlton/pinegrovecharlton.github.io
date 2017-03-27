@@ -191,7 +191,11 @@
 
                 if (target === 'Pictures') {
                     setTimeout(function() {
-                        $('#carousel-inner').slick('slickNext').slick('slickPrev')
+                        $('#carousel-inner').slick('unslick')
+                                            .slick({
+                                                    fade: true,
+                                                    cssEase: 'linear'
+                                                   });
                     },500);
                 }
             });
