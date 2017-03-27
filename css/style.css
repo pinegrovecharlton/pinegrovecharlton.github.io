@@ -124,6 +124,14 @@ div#carousel-inner a.carousel-control {
     width: 100%;
 }
 
+.pic-counter {
+    font-weight: bold;
+}
+
+.picture-tracker {
+    margin-top:30px;
+}
+
 @media (min-width: 768px) {
 	div.collapse.navbar-collapse { visibility: hidden; }
 	div.side-nav { display: block; }

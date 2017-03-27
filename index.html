@@ -51,6 +51,9 @@
 
         <div id="pictures-carousel" style="display: none;">
             <!-- Wrapper for slides -->
+            <h4 class="text-center picture-tracker">
+                Picture <span id="currentPicture" class="pic-counter">1</span> of <span id="totalPictures" class="pic-counter"/>
+            </h4>
             <div id="carousel-inner" class="carousel-inner" role="listbox">
 
             </div>
@@ -102,6 +105,7 @@
                 for (picture in pictures.items) {
                     addImageToSlider(pictures.items[picture]);
                 }
+                $('#totalPictures').html(pictures.items.length);
                 var carousel = document.getElementById('pictures-carousel');
                 carousel.style = '';
                 $(carousel).find('.item').first().addClass('active');
@@ -183,6 +187,10 @@
                 });
 
                 $('#mobile-navbar').removeClass('in');
+            });
+
+            $('#carousel-inner').on('afterChange', function(slick, currentSlide) {
+                $('#currentPicture').html(currentSlide.currentSlide + 1);
             });
         }
 </script>
