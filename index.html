@@ -156,7 +156,8 @@
             }
 
             var section = $('#content section[id$="'+sectionName+'"]');
-            if (section == null) {
+
+            if (section.length === 0) {
                 section = $('#content section').first();
             }
             section.addClass('active');
