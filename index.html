@@ -181,7 +181,8 @@
         }
 
         function setUpListeners() {
-            window.addEventListener('popstate', setActiveSection);
+            //window.addEventListener('popstate', setActiveSection);
+            window.addEventListener('hashchange', setActiveSection);
 
             $('a.nav-link').on('click', function switchContent() {
                 $('#mobile-navbar').removeClass('in');
