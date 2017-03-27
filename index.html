@@ -188,11 +188,9 @@
                 });
 
                 $('#mobile-navbar').removeClass('in');
+
                 if (target === 'Pictures') {
-                    $('#carousel-inner').slick('unslick').slick({
-                        fade: true,
-                        cssEase: 'linear'
-                    });
+                    $('carousel-inner').slick('slickNext').slick('slickPrev')
                 }
             });
 
