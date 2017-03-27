@@ -90,7 +90,7 @@
 
                 $(carousel).find('.item').first().addClass('active');
 
-                $('#Pictures').append(carousel);
+                $('#section-Pictures').append(carousel);
 
              }).then(function() {
                 setUpListeners();
@@ -122,7 +122,7 @@
         function createSection(section) {
             //<section> <h2>title</h2> content </section>
             var newSection = document.createElement('section');
-            newSection.id = section.fields.name.split(' ').join('');
+            newSection.id = 'section-' + section.fields.name.split(' ').join('');
             var title = document.createElement('h1');
             var titleText = document.createTextNode(section.fields.name);
             title.appendChild(titleText);
@@ -155,13 +155,11 @@
                 $('#mobile-nav-list li').first().addClass('active');
             }
 
-            var section;
-            if (sectionName.length && $('#content section#'+sectionName).length) {
-                section = $('#content section#'+sectionName);
-            } else {
+            var section = $('#content section[id$="'+sectionName+'"]');
+            if (section == null) {
                 section = $('#content section').first();
             }
-            section.addClass('active').fadeIn(function() {
+            section.addClass('active', function() {
                 if (sectionName === 'Pictures') {
                     $('#carousel-inner').slick('unslick')
                                         .slick({
@@ -187,23 +185,7 @@
             window.addEventListener('popstate', setActiveSection);
 
             $('a.nav-link').on('click', function switchContent() {
-                // var $this = $(this);
-                // var target = this.getAttribute('data-section');
-                // var targetSection = '#' + target;
-
-                // $('li.active').removeClass('active');
-                // $('li.' + target).addClass('active');
-
-                // $('section.active').fadeOut(function() {
-                //     $('section.active').removeClass('active');
-                //     $(targetSection).addClass('active').fadeIn(
-                // }
-                //     });
-                // });
-
                 $('#mobile-navbar').removeClass('in');
-
-
             });
 
             $('#carousel-inner').on('afterChange', function(slick, currentSlide) {
